@@ -5,7 +5,7 @@ const kafka = new Kafka({
 });
 
 const consumer = kafka.consumer({
-    groupId: "nodejs"
+    groupId: "consumer_a"
 });
 
 await consumer.subscribe({

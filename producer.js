@@ -18,7 +18,6 @@ const rl = readline.createInterface({
 
 console.log("Format: <topic> <pesan> | Ketik 'exit' untuk keluar");
 
-// Fungsi mengirim pesan ke topic tertentu
 const sendMessage = async (topic, message) => {
     await producer.send({
         topic,
@@ -27,7 +26,6 @@ const sendMessage = async (topic, message) => {
     console.log(`Pesan terkirim ke ${topic}: ${message}`);
 };
 
-// Menunggu input dari user
 rl.on("line", async (input) => {
     if (input.toLowerCase() === "exit") {
         console.log("Keluar...");
@@ -36,7 +34,6 @@ rl.on("line", async (input) => {
         process.exit(0);
     }
 
-    // Memisahkan topic dan pesan berdasarkan spasi pertama
     const firstSpaceIndex = input.indexOf(" ");
     if (firstSpaceIndex === -1) {
         console.log("Format salah! Gunakan: <topic> <pesan>");
